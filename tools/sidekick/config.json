@@ -2,8 +2,6 @@
   "project": "DA Block Collection",
   "editUrlLabel": "Document Authoring",
   "editUrlPattern": "https://da.live/edit#/{{org}}/{{site}}{{pathname}}",
-  "previewHost": "*.aem.page",
-  "liveHost": "*.aem.live",
   "plugins": [
     {
       "id": "da-plugin-demo",
