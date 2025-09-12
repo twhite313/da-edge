@@ -5,15 +5,23 @@
 
 .hero {
   position: relative;
-  padding: 40px 24px;
+  padding: 32px;
   min-height: 300px;
 }
 
-.hero h1 {
+.hero > div > div {
   max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
-  color: var(--background-color);
+  block-size: max-content;
+  background-color: var(--light-color);
+  padding: 1rem;
+}
+
+.hero h1 {
+  font-family: Overpass, sans-serif;
+  font-weight: 900;
+  font-size: 100px;
+  letter-spacing: -8px;
+  margin: 0;
 }
 
 .hero picture {
@@ -30,8 +38,14 @@
   height: 100%;
 }
 
-@media (width >= 900px) {
-  .hero {
-    padding: 40px 32px;
+.hero h1 .dx {
+  color: var(--link-color);
+  letter-spacing: -20px;
+}
+
+@media (width <= 900px) {
+  .hero h1 {
+    font-size: 50px;
+    letter-spacing: -4px;
   }
 }
