@@ -188,7 +188,7 @@ export default async function decorate(block) {
   //     const locale = pathSegments[0];
   //     navPath = `/${locale}/nav`;
   //   }
-  }
+  // }
 
   const fragment = await loadFragment(navPath);
 
