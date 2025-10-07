@@ -175,18 +175,19 @@ async function buildBreadcrumbs() {
 export default async function decorate(block) {
   // load nav as fragment
   const navMeta = getMetadata('nav');
-  let navPath = navMeta ? new URL(navMeta, window.location).pathname : '/nav';
-
-  // Check for localized nav fragments
-  if (!navMeta) {
-    const { pathname } = window.location;
-    const pathSegments = pathname.split('/').filter(Boolean);
-
-    // If path starts with a language code (e.g., /de/, /fr/, /es/)
-    if (pathSegments.length > 0 && pathSegments[0].length === 2) {
-      const locale = pathSegments[0];
-      navPath = `/${locale}/nav`;
-    }
+  const { pathname } = window.location;
+  const pathSegments = pathname.split('/').filter(Boolean);
+  
+  let navPath;
+  
+  // Check if we're on a localized page (path starts with 2-char language code)
+  if (pathSegments.length > 0 && pathSegments[0].length === 2) {
+    const locale = pathSegments[0];
+    // Use localized nav path, or localized version of custom nav
+    navPath = navMeta ? `/${locale}${new URL(navMeta, window.location).pathname}` : `/${locale}/nav`;
+  } else {
+    // Default to root nav
+    navPath = navMeta ? new URL(navMeta, window.location).pathname : '/nav';
   }
 
   const fragment = await loadFragment(navPath);
