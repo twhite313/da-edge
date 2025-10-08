@@ -2,7 +2,7 @@
 
 This project provides a foundation for starting an AEM Edge Delivery Services project. It includes many common blocks and features a project might need.
 
-This is just a sample/test/playground for Abode Edge Delivery / Document Authoring. 
+This is just a sample/test/playground for Adobe Edge Delivery / Document Authoring. 
 
 ## URLs
 
