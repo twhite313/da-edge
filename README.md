@@ -1,6 +1,13 @@
-# AEM Block Collection
+# FeDX 
 
 This project provides a foundation for starting an AEM Edge Delivery Services project. It includes many common blocks and features a project might need.
+
+This is just a sample/test/playground for Adobe Edge Delivery / Document Authoring. 
+
+## URLs
+
+https://main--da-edge--twhite313.aem.page<br>
+https://main--da-edge--twhite313.aem.live
 
 ## DA compatible
 
