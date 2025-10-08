@@ -1,0 +1,16 @@
+https://main--da-edge--twhite313.aem.page/footer
+https://main--da-edge--twhite313.aem.page/nav
+https://main--da-edge--twhite313.aem.page/en/footer
+https://main--da-edge--twhite313.aem.page/en/nav
+https://main--da-edge--twhite313.aem.page/de/footer
+https://main--da-edge--twhite313.aem.page/de/nav
+https://main--da-edge--twhite313.aem.page/es/footer
+https://main--da-edge--twhite313.aem.page/es/nav
+https://main--da-edge--twhite313.aem.page/fr/footer
+https://main--da-edge--twhite313.aem.page/fr/nav
+https://main--da-edge--twhite313.aem.page/hi/footer
+https://main--da-edge--twhite313.aem.page/hi/nav
+https://main--da-edge--twhite313.aem.page/ja/footer
+https://main--da-edge--twhite313.aem.page/ja/nav
+https://main--da-edge--twhite313.aem.page/zh/footer
+https://main--da-edge--twhite313.aem.page/zh/nav
