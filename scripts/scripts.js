@@ -193,6 +193,31 @@ function decorateSections(main) {
 }
 
 /**
+ * Decorates links to add locale prefixes automatically
+ * @param {Element} element - Element to decorate links within
+ */
+function decorateLinks(element) {
+  const links = element.querySelectorAll('a');
+  for (const link of links) {
+    if (link.href) {
+      try {
+        const url = new URL(link.href);
+        // Only process internal links (same origin)
+        if (url.origin === window.location.origin) {
+          const localizedUrl = localizeUrl(url);
+          if (localizedUrl) {
+            link.href = localizedUrl.href;
+          }
+        }
+      } catch (e) {
+        // Invalid URL, skip
+        console.warn(`Invalid URL in link: "${link.href}". Error:`, e);
+      }
+    }
+  }
+}
+
+/**
  * Decorates the main element.
  * @param {Element} main The main element
  */
@@ -204,6 +229,7 @@ export function decorateMain(main) {
   buildAutoBlocks(main);
   decorateSections(main);
   decorateBlocks(main);
+  decorateLinks(main);
 }
 
 /**
