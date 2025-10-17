@@ -19,7 +19,7 @@ import {
 
 // Localization configuration
 const locales = {
-    '': { lang: 'en' }, // Root = English (default)
+  '': { lang: 'en' }, // Root = English (default)
   '/de': { lang: 'de' }, // German
   '/es': { lang: 'es' }, // Spanish
   '/fr': { lang: 'fr' }, // French
