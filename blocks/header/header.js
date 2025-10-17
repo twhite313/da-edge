@@ -1,4 +1,5 @@
 import { fetchPlaceholders, getMetadata } from '../../scripts/aem.js';
+import { getConfig } from '../../scripts/scripts.js';
 import { loadFragment } from '../fragment/fragment.js';
 
 // media query match that indicates mobile/tablet width
@@ -174,9 +175,10 @@ async function buildBreadcrumbs() {
  */
 export default async function decorate(block) {
   // load nav as fragment
+  const { locale } = getConfig();
   const navMeta = getMetadata('nav');
   const navPath = navMeta ? new URL(navMeta, window.location).pathname : '/nav';
-  const fragment = await loadFragment(navPath);
+  const fragment = await loadFragment(`${locale.prefix}${navPath}`);
 
   // decorate nav DOM
   block.textContent = '';

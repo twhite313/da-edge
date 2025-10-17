@@ -17,6 +17,78 @@ import {
   toCamelCase,
 } from './aem.js';
 
+// Localization configuration
+const locales = {
+  '': { lang: 'en' }, // Root = English (default)
+  '/de': { lang: 'de' }, // German
+  '/es': { lang: 'es' }, // Spanish
+  '/fr': { lang: 'fr' }, // French
+  '/ja': { lang: 'ja' }, // Japanese
+};
+
+let config = null;
+
+/**
+ * Gets the current locale based on the URL path
+ * @param {Object} localesConfig - Locales configuration object
+ * @returns {Object} Locale object with prefix and language
+ */
+export function getLocale(localesConfig) {
+  const { pathname } = window.location;
+  const matches = Object.keys(localesConfig).filter((locale) => pathname === locale || pathname.startsWith(`${locale}/`));
+  const sorted = matches.toSorted((a, b) => b.length - a.length);
+  const prefix = getMetadata('locale') || sorted[0] || '';
+  if (localesConfig[prefix]?.lang) document.documentElement.lang = localesConfig[prefix].lang;
+  return { prefix, ...localesConfig[prefix] };
+}
+
+/**
+ * Localizes a URL based on the current locale
+ * @param {URL} url - URL to localize
+ * @returns {URL|null} Localized URL or null if no localization needed
+ */
+export function localizeUrl(url) {
+  if (!config) return null;
+  const {
+    locales: configLocales,
+    locale,
+  } = config;
+
+  // If we are in the root locale, do nothing
+  if (locale.prefix === '') return null;
+
+  const {
+    origin, pathname, search, hash,
+  } = url;
+
+  // If the link is already localized, do nothing
+  if (pathname.startsWith(`${locale.prefix}/`)) return null;
+
+  const localized = Object.keys(configLocales).some(
+    (key) => key !== '' && pathname.startsWith(`${key}/`),
+  );
+  if (localized) return null;
+
+  return new URL(`${origin}${locale.prefix}${pathname}${search}${hash}`);
+}
+
+/**
+ * Gets the current configuration
+ * @returns {Object} Configuration object
+ */
+export function getConfig() {
+  if (!config) {
+    config = {
+      locales,
+      locale: getLocale(locales),
+    };
+  }
+  return config;
+}
+
+// Initialize config on load
+getConfig();
+
 /**
  * Builds hero block and prepends to main in a new section.
  * @param {Element} main The container element
@@ -139,7 +211,8 @@ export function decorateMain(main) {
  * @param {Element} doc The container element
  */
 async function loadEager(doc) {
-  doc.documentElement.lang = 'en';
+  const { locale } = getConfig();
+  doc.documentElement.lang = locale.lang || 'en';
   decorateTemplateAndTheme();
   if (getMetadata('breadcrumbs').toLowerCase() === 'true') {
     doc.body.dataset.breadcrumbs = true;
