@@ -35,7 +35,7 @@ let config = null;
  */
 export function getLocale(localesConfig) {
   const { pathname } = window.location;
-  const matches = Object.keys(localesConfig).filter((locale) => pathname.startsWith(`${locale}/`));
+  const matches = Object.keys(localesConfig).filter((locale) => pathname === locale || pathname.startsWith(`${locale}/`));
   const sorted = matches.toSorted((a, b) => b.length - a.length);
   const prefix = getMetadata('locale') || sorted[0] || '';
   if (localesConfig[prefix]?.lang) document.documentElement.lang = localesConfig[prefix].lang;
