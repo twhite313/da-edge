@@ -19,11 +19,13 @@ import {
 
 // Localization configuration
 const locales = {
-  '': { lang: 'en' }, // Root = English (default)
+    '': { lang: 'en' }, // Root = English (default)
   '/de': { lang: 'de' }, // German
   '/es': { lang: 'es' }, // Spanish
   '/fr': { lang: 'fr' }, // French
+  '/hi': { lang: 'hi' }, // Hindi
   '/ja': { lang: 'ja' }, // Japanese
+  '/zh': { lang: 'zh' }, // Chinese
 };
 
 let config = null;
