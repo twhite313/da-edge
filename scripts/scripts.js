@@ -211,6 +211,7 @@ function decorateLinks(element) {
         }
       } catch (e) {
         // Invalid URL, skip
+        console.warn(`Invalid URL in link: "${link.href}". Error:`, e);
       }
     }
   }
