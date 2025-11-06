@@ -9,7 +9,7 @@ The page loads in three distinct phases:
 ```
 1. loadEager()  → Critical above-the-fold content
 2. loadLazy()   → Below-the-fold content
-3. loadDelayed() → Analytics and tracking
+3. loadDelayed() → Analytics and tracking (fire-and-forget)
 ```
 
 ## Initialization
@@ -105,7 +105,7 @@ async function loadLazy(doc) {
 
 ### `loadDelayed()`
 
-Loads non-essential resources that don't impact user experience.
+Loads non-essential resources that don't impact user experience. This is a fire-and-forget function that doesn't need to be awaited.
 
 **Returns:** (void)
 
@@ -528,7 +528,7 @@ function loadDelayed() {
 // Initialize
 await loadEager(document);
 await loadLazy(document);
-loadDelayed();
+loadDelayed(); // Fire-and-forget: doesn't need await
 ```
 
 ## Next Steps
