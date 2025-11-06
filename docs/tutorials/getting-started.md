@@ -50,11 +50,13 @@ The AEM CLI provides a local development server:
 
 ```bash
 # Install AEM CLI globally
-sudo npm install -g @adobe/aem-cli
+npm install -g @adobe/aem-cli
 
 # Verify installation
 aem --version
 ```
+
+**Note:** If you encounter permission errors, consider using [nvm (Node Version Manager)](https://github.com/nvm-sh/nvm) to avoid needing sudo for global package installations.
 
 ## Step 4: Start the Development Server
 

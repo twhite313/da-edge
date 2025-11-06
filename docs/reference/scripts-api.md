@@ -526,7 +526,7 @@ function loadDelayed() {
 }
 
 // Initialize
-loadEager(document);
+await loadEager(document);
 await loadLazy(document);
 loadDelayed();
 ```
