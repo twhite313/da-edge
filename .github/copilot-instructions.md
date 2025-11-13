@@ -36,12 +36,12 @@ da-edge/
 
 ### Local Development Setup
 
-1. **Install Sidekick**: [Browser extension](https://chromewebstore.google.com/detail/aem-sidekick/igkmdomcgoebiipaifhmpfjhbjccggml) for AEM content authoring
-2. **Install dependencies**: `npm install -g @adobe/aem-cli`
-3. **Start development server**: `aem up` 
-4. **Preview locally**: Visit `http://localhost:3000`
-5. **Live reload**: Changes auto-refresh in browser
+**Prerequisite:** [Install Sidekick](https://chromewebstore.google.com/detail/aem-sidekick/igkmdomcgoebiipaifhmpfjhbjccggml) (browser extension) for AEM content authoring.
 
+1. **Install dependencies**: `npm install -g @adobe/aem-cli`
+2. **Start development server**: `aem up` 
+3. **Preview locally**: Visit `http://localhost:3000`
+4. **Live reload**: Changes auto-refresh in browser
 ### Publishing Pipeline
 
 - **Preview environment**: `*.aem.page` - Shows latest authored content
